@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Housing NY</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://image.ibb.co/dD0Say/logo.png">
+</head>
+<body>
+  <div class="loader"></div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <span class="navbar-brand">
+      <img src="https://image.ibb.co/dD0Say/logo.png" width="30" height="30" alt="">
+      Housing NY
+    </span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" style="cursor:pointer;" id="navInicio">Map <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="cursor:pointer;" id="navRanking">Ranking</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="cursor:pointer;" id="navComparacion">Compare</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div id="menu">
+        <div class="textVert"> Options - Conventions</div>
+        <div class="conOp">
+          <div id="space1"></div>
+          <div class="row align-items-center">
+            <div class="box-bronx"></div>
+            <label> Bronx </label>
+          </div>
+          <div class="row align-items-center">
+            <div class="box-man"></div>
+            <label> Manhattan </label>
+          </div>
+          <div class="row align-items-center">
+            <div class="box-que"></div>
+            <label> Queens </label>
+          </div>
+          <div class="row align-items-center">
+            <div class="box-brok"></div>
+            <label> Brooklyn </label>
+          </div>
+          <div class="row align-items-center">
+            <div class="box-si"></div>
+            <label> Staten Island </label>
+          </div>
+          <div id="space"></div>
+          <div class="row">
+            <label class="labelSwitch">Neighborhoods</label>
+            <label class="switch">
+              <input type="checkbox" id="chNei" onclick="marksNei()">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="row">
+            <label class="labelSwitch">Districts</label>
+            <label class="switch">
+              <input type="checkbox" id="chDis" onclick="marksDis()">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="row">
+            <label class="labelSwitch">Crimes</label>
+            <label class="switch">
+              <input type="checkbox" id="chCir" onclick="marksCri()">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="row">
+            <label class="labelSwitch">Buildings</label>
+            <label class="switch">
+              <input type="checkbox" id="chBui" onclick="marksBui()">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="row">
+            <label class="labelSwitch">Museums</label>
+            <label class="switch">
+              <input type="checkbox" id="chMus" onclick="marksMus()">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="row">
+            <label class="labelSwitch">Galleries</label>
+            <label class="switch">
+              <input type="checkbox" id="chGal" onclick="marksGal()">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="row">
+            <label class="labelSwitch">Air Quality</label>
+            <label class="switch">
+              <input type="checkbox" id="chAir" onclick="drawHeat()">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+        </div>
+      </div>
+      <div class="col" id="mapa">
+        <div id="map"> </div>
+      </div>
+    </div>
+
+    <div id="ranking">
+      <div class="row justify-content-center content-box-red" id="tit3D">
+        <h2>Top 3 Districts</h2>
+      </div>
+      <div class="row justify-content-center">
+        <table>
+          <tr>
+            <th>N°</th>
+            <th>Borough</th>
+            <th>N° Dis</th>
+          </tr>
+          <tbody id="table1">
+
+          </tbody>
+        </table>
+      </div>
+      <div class="row justify-content-center">
+        <button id="export1">Export Table</button>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="row justify-content-center content-box-red" id="titSD">
+            <h2>Top 10 Safe Districts</h2>
+          </div>
+          <div class="row justify-content-center">
+            <table>
+              <tr>
+                <th>N°</th>
+                <th>Borough</th>
+                <th>N° Dis</th>
+              </tr>
+              <tbody id="table2">
+
+              </tbody>
+            </table>
+          </div>
+          <div class="row justify-content-center">
+            <button id="export2">Export Table</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="row justify-content-center content-box-red" id="titCD">
+            <h2>Top 10 Close Districts</h2>
+          </div>
+          <div class="row justify-content-center">
+            <table>
+              <tr>
+                <th>N°</th>
+                <th>Borough</th>
+                <th>N° Dis</th>
+              </tr>
+              <tbody id="table3">
+
+              </tbody>
+            </table>
+          </div>
+          <div class="row justify-content-center">
+            <button id="export3">Export Table</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="row justify-content-center content-box-red" id="titAD">
+            <h2>Top 10 Affordable Districts</h2>
+          </div>
+          <div class="row justify-content-center">
+            <table>
+              <tr>
+                <th>N°</th>
+                <th>Borough</th>
+                <th>N° Dis</th>
+              </tr>
+              <tbody id="table4">
+
+              </tbody>
+            </table>
+          </div>
+          <div class="row justify-content-center">
+            <button id="export4">Export Table</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row justify-content-center content-box-red" id="titDR">
+      <h2>Districts Ranking</h2>
+    </div>
+    <div class="row" id="o">
+      <div class="col-md-6" id="comp1">
+        <label for="ordernar1"> Parameter to Rank: </label>
+        <div class="custom-sel" style="width:200px;">
+          <select id="selT1" class="parametro" name="parametro">
+            <option>Select Parameter:</option>
+            <option>Safety</option>
+            <option>Distance</option>
+            <option>Affordability</option>
+            <option>Average</option>
+            <option>Museums</option>
+            <option>Galleries</option>
+            <option>Air Quality</option>
+          </select>
+        </div>
+
+        <button id="botRank1">OK</button>
+        <div class="tableScroll">
+          <div class="row justify-content-center">
+            <table>
+              <tr>
+                <th>N°</th>
+                <th>Borough</th>
+                <th>N° Dis</th>
+              </tr>
+              <tbody id="tableBody1">
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <button id="exportar1">Export Table</button>
+        </div>
+      </div>
+      <div class="col-md-6" id="comp2">
+        <label for="ordernar2"> Parameter to Rank: </label>
+        <div class="custom-sel" style="width:200px;">
+          <select id="selT2" class="parametro" name="parametro">
+            <option>Select Parameter:</option>
+            <option>Safety</option>
+            <option>Distance</option>
+            <option>Affordability</option>
+            <option>Average</option>
+            <option>Museums</option>
+            <option>Galleries</option>
+            <option>Air Quality</option>
+          </select>
+        </div>
+        <button id="botRank2">OK</button>
+        <div class="tableScroll">
+          <div class="row justify-content-center">
+            <table>
+              <tr>
+                <th>N°</th>
+                <th>Borough</th>
+                <th>N° Dis</th>
+              </tr>
+              <tbody id="tableBody2">
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <button id="exportar2">Export Table</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center content-box-red" id="titRCC">
+      <h2>Rank-Compare Charts</h2>
+    </div>
+    <div class="row" id="charts">
+      <div class="col-md-6" id="chartC1">
+        <svg id="chart1">
+
+        </svg>
+      </div>
+
+      <div class="col-md-6" id="chartC2">
+        <svg id="chart2">
+
+        </svg>
+      </div>
+    </div>
+    <div class="row" id="desc">
+      <p> The charts show the parameters, for each parameter there are the 5 boroughs
+        with their respective districts which have their position in the ranking of
+        the indicated parameter. Click on a sector to zoom it.</p>
+      </div>
+  </div>
+
+  <script  src="https://code.jquery.com/jquery-3.3.1.min.js"  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="  crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://www.jqueryscript.net/demo/jQuery-Plugin-To-Convert-HTML-Table-To-CSV-tabletoCSV/jquery.tabletoCSV.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="https://d3js.org/d3-hierarchy.v1.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKLOC2nNGCag9x82Xj206A5h5VhxVTCXA&libraries=visualization"></script>
+  <script src="index.js"></script>
+
+</body>
+</html>

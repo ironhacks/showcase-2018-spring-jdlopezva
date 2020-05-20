@@ -1,0 +1,395 @@
+body {
+    color: #444;
+    font-family: Arial, sans-serif;
+}
+
+.row{
+  background-color: #456990;
+}
+
+#o{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.container {
+    width: 100%;
+    max-width: 960px;
+}
+
+table{
+  width: 350px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url("http://www.gifmania.com/Gif-Animados-Web/Imagenes-Rotulos-Webs/Rotulos-Cargando/Circulo-Carga-62157.gif") 50% 50% no-repeat rgb(249,249,249);
+    background-size: 60px 60px;
+    opacity: .8;
+}
+
+#desc{
+  padding: 15px;
+}
+
+p{
+  background-color: #EEB868;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+table th {background-color: #EEB868; }
+
+table tr:nth-child(odd) {background-color: #49BEAA;}
+
+table tr:nth-child(even) {background-color: #49DCB1;}
+
+path {
+  stroke: #fff;
+}
+
+#map {
+  height: 600px;
+  width: 100%;
+}
+
+html{
+   background-color: #456990;
+ }
+/*the container must be positioned relative:*/
+.custom-sel {
+  position: relative;
+  font-family: Arial;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.custom-sel select {
+  display: none; /*hide original SELECT element:*/
+}
+.select-selected {
+  background-color: DodgerBlue;
+}
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 6px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+div.tooltip {
+  position: absolute;
+  text-align: left;
+  width: auto;
+  height: auto;
+  padding: 8px;
+  font: 12px sans-serif;
+  background: #0a2538;
+  border: #0a2538 1px solid;
+  border-radius: 0px;
+  pointer-events: none;
+  color: white;
+}
+
+label{
+  color: white;
+}
+
+th{
+  border: 2px solid;
+  color: #fff;
+  text-align: center;
+}
+td{
+  border: #fff 2px solid;
+  color: #000;
+  text-align: center;
+}
+
+#titIni{
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.tableScroll{
+  overflow: scroll;
+  height: 470px;
+  overflow-x: hidden;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #EEB868;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: DodgerBlue;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #2E64FE;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 17px;
+  margin-top: 5px;
+}
+.labelSwitch{
+  width: 120px;
+}
+/* Hide default HTML checkbox */
+.switch input {
+  display:none;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 17px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.content-box-red {
+  overflow: hidden;
+  padding: 10px;
+  background-color: #EF767A;
+  border: 1px solid #e9b3b3;
+  color: white;
+}
+
+h2{
+  color: white;
+}
+
+#menu{
+  width: 37px;
+  height: 600px;
+  overflow: hidden;
+  background-color: #456990;
+  -webkit-transition: width 0.1s;
+}
+
+#menu .row{
+  background-color: #456990;
+}
+
+#menu:hover{
+  width:200px;
+}
+
+.textVert{
+  float: left;
+  color: white;
+  font-size: 25px;
+  padding-bottom: 170px;
+  padding-top: 175px;
+  margin-right: 10px;
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+}
+
+#space{
+  height: 50px;
+}
+#space1{
+  height: 20px;
+}
+
+.box-bronx{
+  width: 30px;
+  height: 30px;
+  background-color: violet;
+  border: 1px solid #fff;
+  margin-right: 10px;
+}
+.box-man{
+  width: 30px;
+  height: 30px;
+  background-color: blue;
+  border: 1px solid #fff;
+  margin-right: 10px;
+}
+.box-que{
+  width: 30px;
+  height: 30px;
+  background-color: green;
+  border: 1px solid #fff;
+  margin-right: 10px;
+}
+.box-brok{
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  border: 1px solid #fff;
+  margin-right: 10px;
+}
+.box-si{
+  width: 30px;
+  height: 30px;
+  background-color: purple;
+  border: 1px solid #fff;
+  margin-right: 10px;
+}
+
+.conOp .row{
+  margin-top: 10px;
+  color: white;
+}
+
+button{
+  text-decoration: none;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: 500;
+  font-size: 18px;
+  color: #ffffff;
+  background-color: DodgerBlue;
+  border-radius: 6px;
+  border: 0px;
+}
+
+#ranking .row{
+  padding-bottom: 10px;
+}
+
+button:hover{
+  background-color: #2E64FE;
+}
+
+/*chart air*/
+#main {
+  float: left;
+  width: 750px;
+}
+
+#sequence {
+  width: 600px;
+  height: 70px;
+}
+
+#sequence text, #legend text {
+  font-weight: 600;
+  fill: #fff;
+}
+
+#chart {
+  position: relative;
+}
+
+#chart path {
+  stroke: #fff;
+}
+
+#explanation {
+  position: absolute;
+  top: 260px;
+  left: 305px;
+  width: 140px;
+  text-align: center;
+  color: #666;
+  z-index: -1;
+}
+
+#percentage {
+  font-size: 2.5em;
+}
